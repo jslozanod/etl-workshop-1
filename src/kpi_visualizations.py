@@ -20,6 +20,7 @@ PROCESSED_DIR = os.path.join("data", "processed")
 
 # =========================
 # Premium theme (dark + neon)
+# Profe esta parte la hice con IA para que las garficas se vieran bonitas
 # =========================
 BG = "#0B0F14"          # background
 PANEL = "#0F1621"       # axes background
@@ -57,10 +58,8 @@ plt.rcParams.update({
 # =========================
 def get_connection():
     if not DB_CONFIG["password"]:
-        raise ValueError(
-            "Falta la variable de entorno PGPASSWORD.\n"
-            "En PowerShell:  $env:PGPASSWORD='TU_PASSWORD'  y vuelve a correr."
-        )
+        raise ValueError("PGPASSWORD no está definida.")
+
     return psycopg2.connect(**DB_CONFIG)
 
 
